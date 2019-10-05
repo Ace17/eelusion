@@ -92,6 +92,7 @@ struct Rockman : Player, Damageable, Resurrectable
 
   void resurrect() override
   {
+    game->playSound(SND_BONUS);
     resurrecting = true;
     resurrectDelay = 100;
   }
@@ -387,6 +388,7 @@ struct Rockman : Player, Damageable, Resurrectable
 
       if(decrement(resurrectDelay) || resurrectDelay <= 0)
       {
+        game->textBox("You got your body back");
         upgrades |= UPGRADE_BODY;
         resurrecting = false;
       }
@@ -433,6 +435,7 @@ struct Rockman : Player, Damageable, Resurrectable
     auto const wasOnGround = ground;
 
     // probe for solid ground
+    if(upgrades & UPGRADE_BODY)
     {
       Box box;
       box.pos.x = pos.x;

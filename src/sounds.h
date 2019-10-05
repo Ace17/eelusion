@@ -11,6 +11,7 @@
 enum
 {
   SND_PAUSE,
+  SND_DOOR,
   SND_CHIRP,
   SND_BEEP,
   SND_FIRE,

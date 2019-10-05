@@ -233,7 +233,7 @@ private:
   void textBox(char const* msg) override
   {
     m_textbox = msg;
-    m_textboxDelay = 60 * 2;
+    m_textboxDelay = 60 * 4;
   }
 
   void playMusic(MUSIC id) override
