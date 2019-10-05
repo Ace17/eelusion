@@ -10,7 +10,7 @@
     },
     {
       "name": "stand",
-      "frames": [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 2 ]
+      "frames": [ 0, 1, 2, 1 ]
     },
     {
       "name": "standShoot",
@@ -26,7 +26,7 @@
     },
     {
       "name": "walk",
-      "frames": [ 32, 33, 34, 35, 36, 37, 38, 39, 40, 41 ]
+      "frames": [ 32, 33, 34, 35, 33 ]
     },
     {
       "name": "walkShoot",

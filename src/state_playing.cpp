@@ -233,12 +233,13 @@ struct GameState : Scene, private IGame
       Actor lifebar { Vector(-7, 3.5), MDL_LIFEBAR };
       lifebar.action = 0;
       lifebar.ratio = m_player->health();
-      lifebar.scale = Size(0.7, 3);
+      lifebar.scale = Size(0.8, 4);
       lifebar.screenRefFrame = true;
       lifebar.zOrder = 10;
       m_view->sendActor(lifebar);
     }
 
+    if(0)
     {
       Actor background = { Vector(-8, -8), MDL_BACKGROUND };
       background.scale = Size(16, 16);
@@ -321,11 +322,11 @@ struct GameState : Scene, private IGame
           return;
 
         {
-          auto const posX = (x * 0.5);
-          auto const posY = (y * 0.5);
+          auto const posX = (x);
+          auto const posY = (y);
           auto actor = Actor { Vector(posX, posY), model };
           actor.action = tile;
-          actor.scale = UnitSize * 0.5;
+          actor.scale = UnitSize;
           actor.zOrder = -1;
           m_view->sendActor(actor);
         }
@@ -405,7 +406,7 @@ struct GameState : Scene, private IGame
     auto& level = m_quest.rooms[levelIdx];
     spawnEntities(level, this, levelIdx);
     m_tiles = &level.tiles;
-    m_tilesForDisplay = &level.tilesForDisplay;
+    m_tilesForDisplay = &level.tiles;
     m_theme = level.theme;
     m_view->playMusic(level.theme);
 

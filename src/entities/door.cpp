@@ -25,7 +25,7 @@ struct Door : Entity
     auto onTriggered = [&] (int open)
       {
         state = open;
-        delay = 100;
+        delay = 50;
 
         // in case of closing, immediately prevent traversal
         if(!open)
@@ -59,7 +59,7 @@ struct Door : Entity
   {
     auto r = Actor { pos, MDL_DOOR };
     r.action = state ? 1 : 3;
-    r.ratio = 1 - (delay / 100.0f);
+    r.ratio = 1 - (delay / 50.0f);
     r.scale = size;
     actors.push_back(r);
   }

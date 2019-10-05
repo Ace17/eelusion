@@ -40,7 +40,7 @@ public:
   {
     SDL_Init(0);
 
-    m_display.reset(createDisplay(Size2i(768, 768)));
+    m_display.reset(createDisplay(Size2i(512, 512)));
     m_audio.reset(createAudio());
 
     m_scene.reset(createGame(this, m_args));

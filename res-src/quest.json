@@ -11,11 +11,22 @@
                  "id":76,
                  "name":"TestRoom",
                  "rotation":0,
-                 "type":"5",
+                 "type":"0",
                  "visible":true,
                  "width":16,
                  "x":120,
                  "y":132
+                }, 
+                {
+                 "height":4,
+                 "id":281,
+                 "name":"Main",
+                 "rotation":0,
+                 "type":"0",
+                 "visible":true,
+                 "width":16,
+                 "x":120,
+                 "y":160
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -59,7 +70,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":281,
+ "nextobjectid":282,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

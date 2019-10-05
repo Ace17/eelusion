@@ -128,7 +128,7 @@ Model loadModel(const char* path)
         pngPath = "res/tiles/default.png";
       }
 
-      return loadTiledModel(pngPath.c_str(), 64 * 2, 8, 16);
+      return loadTiledModel(pngPath.c_str(), 64, 8, 8);
     }
     else
     {

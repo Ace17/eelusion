@@ -19,7 +19,8 @@ struct Switch : Entity
 {
   Switch(int id_) : id(id_)
   {
-    size = UnitSize * 0.75;
+    size = UnitSize;
+    solid = 1;
     Body::onCollision = [this] (Body* other) { onCollide(other); };
   }
 
