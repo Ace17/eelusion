@@ -14,8 +14,8 @@
                  "type":"0",
                  "visible":true,
                  "width":16,
-                 "x":120,
-                 "y":132
+                 "x":48,
+                 "y":92
                 }, 
                 {
                  "height":4,
@@ -25,8 +25,8 @@
                  "type":"0",
                  "visible":true,
                  "width":16,
-                 "x":120,
-                 "y":160
+                 "x":48,
+                 "y":120
                 }, 
                 {
                  "height":4,
@@ -36,8 +36,19 @@
                  "type":"0",
                  "visible":true,
                  "width":16,
-                 "x":136,
-                 "y":160
+                 "x":64,
+                 "y":120
+                }, 
+                {
+                 "height":8,
+                 "id":283,
+                 "name":"TheCell",
+                 "rotation":0,
+                 "type":"0",
+                 "visible":true,
+                 "width":12,
+                 "x":36,
+                 "y":120
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -81,7 +92,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":283,
+ "nextobjectid":284,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

@@ -146,10 +146,6 @@ void addBoundaryDetectors(Room& room, vector<Room> const& quest)
   }
 }
 
-// from smarttiles
-#include <array>
-array<int, 4> computeTileFor(Matrix2<int> const& m, int x, int y);
-
 static
 void preprocessRoom(Room& room, vector<Room> const& quest)
 {

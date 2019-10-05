@@ -254,12 +254,14 @@ static void removeVersion(string& data)
 }
 
 static
-Room loadAbstractRoom(json::Value const& jsonRoom)
+Room loadAbstractRoom(json::Value const& jsonRoom, bool isTmx = false)
 {
   auto box = getRect(jsonRoom);
 
   auto const PELS_PER_TILE = 4;
-  box = convertRect(box, PELS_PER_TILE, 64);
+
+  if(isTmx)
+    box = convertRect(box, PELS_PER_TILE, 64);
 
   auto const sizeInTiles = box.size * CELL_SIZE;
 
@@ -300,7 +302,27 @@ Room loadAbstractRoom(json::Value const& jsonRoom)
   return room;
 }
 
-Quest loadQuest(string path) // tiled TMX format
+Quest loadQuest(string path)
+{
+  auto data = read(path);
+  auto js = json::parse(data.c_str(), data.size());
+
+  auto layers = getAllLayers(js);
+
+  auto layer = layers["rooms"];
+
+  Quest r;
+
+  for(auto& roomValue : layer["objects"].elements)
+  {
+    auto room = loadAbstractRoom(roomValue);
+    r.rooms.push_back(move(room));
+  }
+
+  return r;
+}
+
+Quest loadTmxQuest(string path) // tiled TMX format
 {
   auto data = read(path);
   removeVersion(data);
@@ -314,7 +336,7 @@ Quest loadQuest(string path) // tiled TMX format
 
   for(auto& roomValue : layer["objects"].elements)
   {
-    auto room = loadAbstractRoom(roomValue);
+    auto room = loadAbstractRoom(roomValue, true);
     r.rooms.push_back(move(room));
   }
 

@@ -13,6 +13,10 @@
       "frames": [ 0, 1, 2, 1 ]
     },
     {
+      "name": "cadaver",
+      "frames": [ 6 ]
+    },
+    {
       "name": "ghost",
       "frames": [ 4, 5 ]
     },

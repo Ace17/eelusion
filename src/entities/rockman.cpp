@@ -76,13 +76,24 @@ struct Bullet : Entity
 
 static auto const NORMAL_SIZE = Size(0.7, 1.9);
 
-struct Rockman : Player, Damageable
+struct Resurrectable
+{
+  virtual void resurrect() = 0;
+};
+
+struct Rockman : Player, Damageable, Resurrectable
 {
   Rockman()
   {
     size = NORMAL_SIZE;
     collidesWith = CG_WALLS | CG_LADDER;
     Body::onCollision = [this] (Body* other) { onCollide(other); };
+  }
+
+  void resurrect() override
+  {
+    resurrecting = true;
+    resurrectDelay = 100;
   }
 
   void onCollide(Body* b)
@@ -102,7 +113,10 @@ struct Rockman : Player, Damageable
     // re-center
     r.pos += Vector(-(r.scale.width - size.width) * 0.5, -0.1);
 
-    if(isInitialGhost)
+    if(resurrecting)
+      return;
+
+    if(!(upgrades & UPGRADE_BODY))
     {
       r.ratio = (time % 100) / 100.0f;
       r.action = ACTION_GHOST;
@@ -215,7 +229,7 @@ struct Rockman : Player, Damageable
 
   void computeVelocity(Control c)
   {
-    if(isInitialGhost)
+    if(!(upgrades & UPGRADE_BODY))
     {
       if(c.up)
         vel.y = +WALK_SPEED;
@@ -246,7 +260,7 @@ struct Rockman : Player, Damageable
       dir = LEFT;
 
     // gravity
-    if(life > 0 && !ladder && !isInitialGhost)
+    if(life > 0 && !ladder && (upgrades & UPGRADE_BODY))
       vel.y -= 0.00005;
 
     sliding = false;
@@ -367,6 +381,17 @@ struct Rockman : Player, Damageable
 
   virtual void tick() override
   {
+    if(resurrecting)
+    {
+      game->setAmbientLight(resurrectDelay / 100.0);
+
+      if(decrement(resurrectDelay) || resurrectDelay <= 0)
+      {
+        upgrades |= UPGRADE_BODY;
+        resurrecting = false;
+      }
+    }
+
     for(int i = 0; i < 10; ++i)
       subTick();
   }
@@ -484,6 +509,8 @@ struct Rockman : Player, Damageable
   {
     game->setAmbientLight(0);
     upgrades = game->getVariable(-1)->get();
+    resurrectDelay = 0;
+    resurrecting = false;
   }
 
   void die()
@@ -569,7 +596,8 @@ struct Rockman : Player, Damageable
   bool ball = false;
   bool sliding = false;
   bool ladder = false;
-  bool isInitialGhost = true;
+  bool resurrecting = false;
+  int resurrectDelay = 0;
   Control control {};
   Vector vel;
   int upgrades = 0;
@@ -579,4 +607,56 @@ std::unique_ptr<Player> makeRockman()
 {
   return make_unique<Rockman>();
 }
+
+struct Cadaver : Entity
+{
+  Cadaver()
+  {
+    size = Size2f(3, 0.5);
+
+    Body::onCollision = [this] (Body* other)
+      {
+        if(counter == 0)
+        {
+          if(auto resurrectable = dynamic_cast<Resurrectable*>(other))
+            resurrectable->resurrect();
+
+          counter = 1;
+        }
+      };
+  }
+
+  virtual void addActors(vector<Actor>& actors) const override
+  {
+    auto r = Actor { pos, MDL_ROCKMAN };
+    r.scale = Size(3, 3);
+    r.action = ACTION_CADAVER;
+
+    if(counter > 0)
+      r.effect = Effect::Blinking;
+
+    actors.push_back(r);
+  }
+
+  void tick() override
+  {
+    if(counter > 0)
+      counter++;
+
+    if(counter >= 100)
+      dead = true;
+  }
+
+  int counter = 0;
+};
+
+#include "entity_factory.h"
+
+static unique_ptr<Entity> makeCadaver(IEntityConfig* cfg)
+{
+  (void)cfg;
+  return make_unique<Cadaver>();
+}
+
+static auto const reg1 = registerEntity("cadaver", &makeCadaver);
 

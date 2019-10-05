@@ -3,7 +3,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJztlUEKwCAMBCM9tf9\/cC89lGA1xl01xYG9qZsBIUlEEjkadl9rLuNsJWY7oPy9oP7I6v5fs0f37519+8f2t\/AH\/5wPy99Dj4\/lfu6sx9\/S66F2F9Gh30L4o7D4o7sQ+z8q25\/7n0dT2yml88z9pnO8Ytl\/qBla3UflfMLuWdV\/Vm7cfwL3",
+         "data":"eJztlcEKACEIRI097f\/\/8LKHoIOW5bhS68AcgjSfQhYiKul0sKui67gYJ\/9\/+KMcza\/RCfwSj5UfJevcPPnbGOls1Sgfsu+IPBH8yLc8VPfG7lqd7c78Ly+3\/4l0vfD6F7Ua7ZTefcSe1Obh+tuLX6l15v+f9S3Ymg\/B+AX\/KX4AskcDDg==",
          "encoding":"base64",
          "height":16,
          "id":3,
@@ -33,28 +33,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":41,
-                 "name":"door(0)",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":192,
-                 "y":192
-                }, 
-                {
-                 "height":16,
-                 "id":42,
-                 "name":"switch(0)",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":144,
-                 "y":208
-                }, 
-                {
-                 "height":16,
                  "id":43,
                  "name":"switch(0)",
                  "rotation":0,
@@ -63,6 +41,50 @@
                  "width":16,
                  "x":672,
                  "y":208
+                }, 
+                {
+                 "height":16,
+                 "id":44,
+                 "name":"lift",
+                 "properties":[
+                        {
+                         "name":"delta_x",
+                         "type":"string",
+                         "value":"6"
+                        }, 
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":192,
+                 "y":208
+                }, 
+                {
+                 "height":16,
+                 "id":45,
+                 "name":"switch",
+                 "properties":[
+                        {
+                         "name":"delta_x",
+                         "type":"string",
+                         "value":"6"
+                        }, 
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":160,
+                 "y":192
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -71,7 +93,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":44,
+ "nextobjectid":46,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
