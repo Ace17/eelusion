@@ -382,16 +382,27 @@ struct Rockman : Player, Damageable, Resurrectable
 
   virtual void tick() override
   {
-    if(resurrecting)
+    if(!(upgrades & UPGRADE_BODY) && resurrecting)
     {
       game->setAmbientLight(resurrectDelay / 100.0);
 
       if(decrement(resurrectDelay) || resurrectDelay <= 0)
       {
         game->textBox("You got your body back");
-        upgrades |= UPGRADE_BODY;
+        addUpgrade(UPGRADE_BODY);
         resurrecting = false;
       }
+    }
+
+    if(upgrades & UPGRADE_BODY)
+    {
+      collidesWith |= CG_WALLS;
+      collidesWith |= CG_DOORS;
+    }
+    else
+    {
+      collidesWith &= ~CG_WALLS;
+      collidesWith &= ~CG_DOORS;
     }
 
     for(int i = 0; i < 10; ++i)

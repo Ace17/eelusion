@@ -53,6 +53,11 @@
                          "value":"6"
                         }, 
                         {
+                         "name":"delta_y",
+                         "type":"string",
+                         "value":"0"
+                        }, 
+                        {
                          "name":"link",
                          "type":"string",
                          "value":"2"
@@ -67,13 +72,8 @@
                 {
                  "height":16,
                  "id":45,
-                 "name":"switch",
+                 "name":"switch(2)",
                  "properties":[
-                        {
-                         "name":"delta_x",
-                         "type":"string",
-                         "value":"6"
-                        }, 
                         {
                          "name":"link",
                          "type":"string",

@@ -40,7 +40,7 @@ struct Lift : Entity
     link = cfg->getInt("link", 0);
     delta_x = cfg->getInt("delta_x", 0);
     delta_y = cfg->getInt("delta_y", +7);
-    collisionGroup = CG_WALLS;
+    collisionGroup = CG_DOORS;
   }
 
   void enter() override
@@ -164,9 +164,9 @@ struct Lift : Entity
   int debounceTrigger = 0;
 
   // config
-  int delta_x;
-  int delta_y;
-  int link;
+  int delta_x = 0;
+  int delta_y = 0;
+  int link = 0;
 
   unique_ptr<Handle> subscription;
   Vector initialPos;
