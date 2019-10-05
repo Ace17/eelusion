@@ -21,6 +21,7 @@ struct Switch : Entity
   {
     size = UnitSize;
     solid = 1;
+    collisionGroup = CG_WALLS;
     Body::onCollision = [this] (Body* other) { onCollide(other); };
   }
 
