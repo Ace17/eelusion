@@ -238,6 +238,19 @@ void loadConcreteRoom(Room& room, json::Value const& jsRoom)
   }
 }
 
+static void removeVersion(string& data)
+{
+  auto i = data.find("\"version\":");
+  if(i == string::npos)
+    return; // nothing to do
+
+  auto j = i;
+  while(data[j] != ',')
+    ++j;
+
+  data.erase(i, j-i+1);
+}
+
 static
 Room loadAbstractRoom(json::Value const& jsonRoom)
 {
@@ -260,6 +273,7 @@ Room loadAbstractRoom(json::Value const& jsonRoom)
   if(exists(path))
   {
     auto data = read(path);
+    removeVersion(data);
     auto jsRoom = json::parse(data.c_str(), data.size());
     loadConcreteRoom(room, jsRoom);
   }
@@ -282,18 +296,6 @@ Room loadAbstractRoom(json::Value const& jsonRoom)
   }
 
   return room;
-}
-
-static void removeVersion(string& data)
-{
-  auto i = data.find("\"version\":");
-  if(i == string::npos)
-    return; // nothing to do
-  auto j = i;
-  while(data[j] != ',')
-    ++j;
-
-  data.erase(i, j-i+1);
 }
 
 Quest loadQuest(string path) // tiled TMX format
