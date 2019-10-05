@@ -106,6 +106,7 @@ struct Rockman : Player, Damageable
     {
       r.ratio = (time % 100) / 100.0f;
       r.action = ACTION_GHOST;
+
       if(vel.x < 0)
         r.scale.width *= -1;
     }
@@ -229,6 +230,7 @@ struct Rockman : Player, Damageable
         vel.x = -WALK_SPEED;
       else
         vel.x = 0;
+
       return;
     }
 
