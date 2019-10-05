@@ -18,6 +18,7 @@ struct Door : Entity
   {
     size = Size(1, 3);
     solid = true;
+    collisionGroup = CG_DOORS;
   }
 
   void enter() override

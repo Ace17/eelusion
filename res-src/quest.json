@@ -27,6 +27,17 @@
                  "width":16,
                  "x":120,
                  "y":160
+                }, 
+                {
+                 "height":4,
+                 "id":282,
+                 "name":"Central",
+                 "rotation":0,
+                 "type":"0",
+                 "visible":true,
+                 "width":16,
+                 "x":136,
+                 "y":160
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -70,7 +81,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":282,
+ "nextobjectid":283,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

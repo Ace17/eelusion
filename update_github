@@ -3,7 +3,7 @@ set -euo pipefail
 
 set -x
 
-readonly name="deeep"
+readonly name="eelusion"
 
 readonly tmpDir=/tmp/update-github-$name
 mkdir -p $tmpDir

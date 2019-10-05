@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-readonly NAME="deeep"
+readonly NAME="eelusion"
 
 readonly tmpDir=/tmp/deliver-$NAME-$$
 trap "rm -rf $tmpDir" EXIT
