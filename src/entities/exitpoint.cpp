@@ -10,6 +10,7 @@
 
 #include "collision_groups.h"
 #include "entity.h"
+#include "toggle.h"
 #include "models.h" // MDL_BLOCK
 #include "entities/player.h"
 
@@ -42,11 +43,26 @@ struct ExitPoint : Entity
     if(dynamic_cast<Player*>(other))
     {
       active = false;
+      timer = 50;
+    }
+  }
+
+  virtual void tick() override
+  {
+    if(active)
+      return;
+
+    game->setAmbientLight(1.0 - timer / 50.0);
+
+    if(decrement(timer))
+    {
       game->postEvent(make_unique<FinishGameEvent>());
+      active = true;
     }
   }
 
   bool active = true;
+  int timer = 0;
 };
 
 #include "entity_factory.h"

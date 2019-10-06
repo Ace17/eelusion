@@ -42,7 +42,7 @@ struct EndingState : Scene
     }
 
     view->setCameraPos(NullVector);
-    // view->setAmbientLight(delay / float(FADE_TIME) - 1.0);
+    view->setAmbientLight(delay / float(FADE_TIME) - 1.0);
 
     if(activated)
     {
