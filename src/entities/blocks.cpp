@@ -23,12 +23,15 @@ struct FragileBlock : Entity, Damageable
 
   virtual void addActors(vector<Actor>& actors) const override
   {
-    if(!solid)
+    if(state == 2)
       return;
 
     auto r = Actor { pos, MDL_BLOCK };
     r.scale = size;
+    if(state == 0)
     r.ratio = 0;
+    else
+      r.ratio = 1.0f-(timer/50.0f);
     r.action = 3;
 
     actors.push_back(r);
@@ -41,12 +44,25 @@ struct FragileBlock : Entity, Damageable
 
   void tick() override
   {
-    if(decrement(disappearTimer))
+    if(state == 1)
     {
-      reappear();
+      if(decrement(timer))
+      {
+        collisionGroup = 0;
+        collidesWith = 0;
+        solid = 0;
 
-      if(physics->getBodiesInBox(getBox(), CG_PLAYER, false, this))
-        disappear();
+        state = 2;
+        timer = 300;
+      }
+    }
+    else if(state == 2)
+    {
+      bool canReapear = !physics->getBodiesInBox(getBox(), CG_PLAYER, false, this);
+      decrement(timer);
+
+      if(canReapear && timer == 0)
+        reappear();
     }
   }
 
@@ -55,17 +71,17 @@ struct FragileBlock : Entity, Damageable
     collisionGroup = CG_WALLS;
     collidesWith = CG_WALLS;
     solid = 1;
+    state = 0;
   }
 
   void disappear()
   {
-    disappearTimer = 300;
-    collisionGroup = 0;
-    collidesWith = 0;
-    solid = 0;
+    timer = 50;
+    state = 1;
   }
 
-  int disappearTimer = 0;
+  int state = 0; // 0: solid, 1:disapearing, 2: disapeared
+  int timer = 0;
 };
 
 #include "entity_factory.h"
