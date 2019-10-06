@@ -3,7 +3,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJztlEkOACAIA9H\/P9q7MYaloS406VHoiNhEpJWhYrMUf\/FH74KdoZw\/853Y+SLZNUxRWfOx2ecMSGnr\/s6\/O5fFf5oy+VF5LHWY8vRH7xpTq\/6rXJ45a99rn4ySZ2eQu4b4y2\/xS7wDe4sCcw==",
+         "data":"eJztk0kOwCAMA50e+\/8Hc0dlcWQRKLE0NxI8EhgAS\/BCl2iX9E9\/r78d7KDyv5HR+4\/u18Mbxp\/ZNdMv2r3uoMzs3tv9e3Or\/HfLSn9VH2ZPZJj7v87+0b\/Vi\/FneCpU8fwZdkbhn+xFAbNAAsI=",
          "encoding":"base64",
          "height":16,
          "id":3,
@@ -50,8 +50,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":208,
-                 "y":240
+                 "x":160,
+                 "y":224
                 }, 
                 {
                  "height":16,
@@ -107,6 +107,105 @@
                  "width":16,
                  "x":864,
                  "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":76,
+                 "name":"fragile_block",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":208
+                }, 
+                {
+                 "height":16,
+                 "id":77,
+                 "name":"fragile_block",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":160,
+                 "y":208
+                }, 
+                {
+                 "height":16,
+                 "id":78,
+                 "name":"fragile_block",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":160,
+                 "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":79,
+                 "name":"fragile_block",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":144,
+                 "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":80,
+                 "name":"fragile_block",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":128,
+                 "y":208
+                }, 
+                {
+                 "height":16,
+                 "id":81,
+                 "name":"fragile_block",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":128,
+                 "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":82,
+                 "name":"fragile_block",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":112,
+                 "y":208
+                }, 
+                {
+                 "height":16,
+                 "id":83,
+                 "name":"fragile_block",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":112,
+                 "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":84,
+                 "name":"fragile_block",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":160,
+                 "y":208
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -115,7 +214,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":63,
+ "nextobjectid":85,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
