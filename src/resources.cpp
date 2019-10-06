@@ -47,6 +47,7 @@ static const Resource resources[] =
   { ResourceType::Model, MDL_SAVEPOINT, "res/sprites/savepoint.model" },
   { ResourceType::Model, MDL_BLOCK, "res/sprites/block.model" },
   { ResourceType::Model, MDL_SPLASH, "res/sprites/splash.model" },
+  { ResourceType::Model, MDL_ENDING, "res/sprites/ending.model" },
   { ResourceType::Model, MDL_PAUSED, "res/sprites/minimap.model" },
   { ResourceType::Model, MDL_ELEVATOR, "res/sprites/elevator.model" },
   { ResourceType::Model, MDL_RECT, "res/sprites/rect.model" },

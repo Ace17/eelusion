@@ -13,7 +13,7 @@
 #include "vec.h"
 #include "toggle.h"
 #include "state_machine.h"
-#include "models.h" // MDL_SPLASH
+#include "models.h" // MDL_ENDING
 
 struct EndingState : Scene
 {
@@ -58,13 +58,10 @@ struct EndingState : Scene
 
   void draw() override
   {
-    {
-      auto splash = Actor { NullVector, MDL_SPLASH };
-      splash.scale = Size2f(16, 16);
-      splash.pos -= Vector2f(8, 8);
-      view->sendActor(splash);
-    }
-    view->textBox("THANKS FOR PLAYING!");
+    auto splash = Actor { NullVector, MDL_ENDING };
+    splash.scale = Size2f(16, 16);
+    splash.pos -= Vector2f(8, 8);
+    view->sendActor(splash);
   }
 
 private:
