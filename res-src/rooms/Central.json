@@ -1,12 +1,12 @@
-{ "height":16,
+{ "height":32,
  "infinite":false,
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJztlsEKwCAMQyM77f9\/eOwgeLBY19iiayAHDxZfA60FQEmng10V\/Y6r4+T\/D3+Uo\/k1OoFf4rHys2TNbSV\/e0c6WzWqp+m7NhtGft78zFrMd7eqe2N3fc1iZ\/6Xt7f\/AV0vmHPRMp9Y83KWR1vH+381mv+zvgV7skTyn+IH1RsDCw==",
+         "data":"eJztltsOgCAMQ+HR\/\/9hXyQxJFwGrJuuTfrmbA9eIKeUMk3TcNey7mPJ\/sc1aDGNNHvdqtDP1Rt\/naPxHp\/opS1rzl4vVI4n7ncvVI4nbgtF5S6Kyl2E4P\/C\/ofKkfBrn080c3b+rVa9yE\/+6PyITh75NUT+fX4vnZBZ2r3QOVKRH5cTnZ+iJEJ+MytZ0n1+5v47Z4eZOatzzgmG3uxo7nrsgT+qbzmTA+c=",
          "encoding":"base64",
-         "height":16,
-         "id":3,
+         "height":32,
+         "id":4,
          "name":"tiles",
          "opacity":1,
          "type":"tilelayer",
@@ -20,50 +20,6 @@
          "id":2,
          "name":"things",
          "objects":[
-                {
-                 "height":16,
-                 "id":44,
-                 "name":"lift",
-                 "properties":[
-                        {
-                         "name":"delta_x",
-                         "type":"string",
-                         "value":"6"
-                        }, 
-                        {
-                         "name":"delta_y",
-                         "type":"string",
-                         "value":"0"
-                        }, 
-                        {
-                         "name":"link",
-                         "type":"string",
-                         "value":"2"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":192,
-                 "y":208
-                }, 
-                {
-                 "height":16,
-                 "id":45,
-                 "name":"switch(2)",
-                 "properties":[
-                        {
-                         "name":"link",
-                         "type":"string",
-                         "value":"2"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":160,
-                 "y":192
-                }, 
                 {
                  "height":16,
                  "id":46,
@@ -83,23 +39,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":47,
-                 "name":"upgrade_whip",
-                 "properties":[
-                        {
-                         "name":"link",
-                         "type":"string",
-                         "value":"2"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":640,
-                 "y":176
-                }, 
-                {
-                 "height":16,
                  "id":48,
                  "name":"fragile_block",
                  "properties":[
@@ -112,8 +51,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":880,
-                 "y":160
+                 "x":208,
+                 "y":416
                 }, 
                 {
                  "height":16,
@@ -129,8 +68,59 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":880,
-                 "y":176
+                 "x":208,
+                 "y":432
+                }, 
+                {
+                 "height":16,
+                 "id":50,
+                 "name":"lift",
+                 "properties":[
+                        {
+                         "name":"delta_y",
+                         "type":"string",
+                         "value":"15"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":496,
+                 "y":464
+                }, 
+                {
+                 "height":16,
+                 "id":51,
+                 "name":"fragile_block",
+                 "properties":[
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":368,
+                 "y":448
+                }, 
+                {
+                 "height":16,
+                 "id":52,
+                 "name":"fragile_block",
+                 "properties":[
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":368,
+                 "y":464
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -138,8 +128,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":4,
- "nextobjectid":50,
+ "nextlayerid":5,
+ "nextobjectid":53,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

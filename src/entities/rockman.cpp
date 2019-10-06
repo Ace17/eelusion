@@ -45,12 +45,15 @@ struct WhipHit : Entity
 
   virtual void addActors(vector<Actor>& actors) const override
   {
-    auto r = Actor { pos, MDL_BULLET };
-    r.scale = size;
-    r.action = 0;
-    r.ratio = 0;
+    if(0)
+    {
+      auto r = Actor { pos, MDL_BULLET };
+      r.scale = size;
+      r.action = 0;
+      r.ratio = 0;
 
-    actors.push_back(r);
+      actors.push_back(r);
+    }
   }
 
   void tick() override
@@ -70,7 +73,7 @@ struct WhipHit : Entity
     dead = true;
   }
 
-  int life = 10;
+  int life = 13;
   Vector vel;
 };
 
@@ -122,7 +125,7 @@ struct Rockman : Player, Damageable, Resurrectable
     }
     else if(sliding)
     {
-      if(shootDelay == 0)
+      if(whipDelay == 0)
         r.action = ACTION_SLIDE;
       else
         r.action = ACTION_SLIDE_SHOOT;
@@ -151,7 +154,7 @@ struct Rockman : Player, Damageable, Resurrectable
       else
       {
         r.pos.y -= 0.3;
-        r.action = shootDelay ? ACTION_FALL_SHOOT : ACTION_FALL;
+        r.action = whipDelay ? ACTION_FALL_SHOOT : ACTION_FALL;
         r.ratio = vel.y > 0 ? 0 : 1;
       }
     }
@@ -168,7 +171,7 @@ struct Rockman : Player, Damageable, Resurrectable
         {
           r.ratio = (time % 500) / 500.0f;
 
-          if(shootDelay == 0)
+          if(whipDelay == 0)
             r.action = ACTION_WALK;
           else
             r.action = ACTION_WALK_SHOOT;
@@ -176,15 +179,25 @@ struct Rockman : Player, Damageable, Resurrectable
       }
       else
       {
-        if(shootDelay == 0)
+        if(whipDelay == 0)
         {
           r.ratio = (time % 3000) / 3000.0f;
           r.action = ACTION_STAND;
         }
         else
         {
-          r.ratio = 0;
+          r.ratio = 1.0 - (whipDelay%300)/300.0f;
           r.action = ACTION_STAND_SHOOT;
+          if(r.ratio >= 0.5)
+          {
+            auto r2 = r;
+            r2.ratio = 0;
+            r2.action= ACTION_WHIP;
+            r2.pos.x += 3.0 * (dir == LEFT? -1 : 1);
+            if(dir == LEFT)
+              r2.scale.width *= -1;
+            actors.push_back(r2);
+          }
         }
       }
     }
@@ -470,7 +483,7 @@ struct Rockman : Player, Damageable, Resurrectable
     decrement(debounceFire);
     decrement(debounceLanding);
     decrement(climbDelay);
-    decrement(shootDelay);
+    decrement(whipDelay);
     decrement(ladderDelay);
 
     handleWhip();
@@ -555,7 +568,7 @@ struct Rockman : Player, Damageable, Resurrectable
         b->vel = Vector(0.25, 0) * sign;
         game->spawn(b.release());
         game->playSound(SND_FIRE);
-        shootDelay = 300;
+        whipDelay = 300;
       }
     }
   }
@@ -570,7 +583,7 @@ struct Rockman : Player, Damageable, Resurrectable
   int hurtDelay = 0;
   int ghostDelay = 0;
   int dieDelay = 0;
-  int shootDelay = 0;
+  int whipDelay = 0;
   int ladderDelay = 0;
   float ladderX;
   int life = MAX_LIFE;

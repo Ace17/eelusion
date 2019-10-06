@@ -14,8 +14,8 @@
                  "type":"0",
                  "visible":true,
                  "width":16,
-                 "x":12,
-                 "y":68
+                 "x":16,
+                 "y":8
                 }, 
                 {
                  "height":4,
@@ -29,7 +29,7 @@
                  "y":120
                 }, 
                 {
-                 "height":4,
+                 "height":8,
                  "id":282,
                  "name":"Central",
                  "rotation":0,
@@ -37,7 +37,7 @@
                  "visible":true,
                  "width":16,
                  "x":64,
-                 "y":120
+                 "y":116
                 }, 
                 {
                  "height":8,
