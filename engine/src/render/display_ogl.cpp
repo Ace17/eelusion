@@ -16,8 +16,7 @@
 #include <stdexcept>
 using namespace std;
 
-#define GL_GLEXT_PROTOTYPES 1
-#include "SDL_opengl.h"
+#include "glad.h"
 #include "SDL.h" // SDL_INIT_VIDEO
 
 #include "base/util.h" // clamp
@@ -282,6 +281,9 @@ struct OpenglDisplay : Display
 
     if(!m_context)
       throw runtime_error("Can't create OpenGL context");
+
+    if(!gladLoadGLES2Loader(&SDL_GL_GetProcAddress))
+      throw runtime_error("Can't load OpenGL");
 
     printOpenGlVersion();
 
