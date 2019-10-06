@@ -76,11 +76,6 @@ struct Bullet : Entity
 
 static auto const NORMAL_SIZE = Size(0.7, 1.9);
 
-struct Resurrectable
-{
-  virtual void resurrect() = 0;
-};
-
 struct Rockman : Player, Damageable, Resurrectable
 {
   Rockman()
@@ -401,6 +396,7 @@ struct Rockman : Player, Damageable, Resurrectable
       collidesWith |= CG_BONUS;
       collidesWith |= CG_WALLS;
       collidesWith |= CG_DOORS;
+
       if(!blinking)
         collisionGroup |= CG_SOLIDPLAYER;
       else
@@ -410,7 +406,7 @@ struct Rockman : Player, Damageable, Resurrectable
     {
       collisionGroup &= ~CG_SOLIDPLAYER;
       collidesWith &= ~CG_BONUS;
-      collidesWith &= ~CG_WALLS;
+      collidesWith |= CG_WALLS;
       collidesWith &= ~CG_DOORS;
     }
 
@@ -626,56 +622,4 @@ std::unique_ptr<Player> makeRockman()
 {
   return make_unique<Rockman>();
 }
-
-struct Cadaver : Entity
-{
-  Cadaver()
-  {
-    size = Size2f(3, 0.5);
-
-    Body::onCollision = [this] (Body* other)
-      {
-        if(counter == 0)
-        {
-          if(auto resurrectable = dynamic_cast<Resurrectable*>(other))
-            resurrectable->resurrect();
-
-          counter = 1;
-        }
-      };
-  }
-
-  virtual void addActors(vector<Actor>& actors) const override
-  {
-    auto r = Actor { pos, MDL_ROCKMAN };
-    r.scale = Size(3, 3);
-    r.action = ACTION_CADAVER;
-
-    if(counter > 0)
-      r.effect = Effect::Blinking;
-
-    actors.push_back(r);
-  }
-
-  void tick() override
-  {
-    if(counter > 0)
-      counter++;
-
-    if(counter >= 100)
-      dead = true;
-  }
-
-  int counter = 0;
-};
-
-#include "entity_factory.h"
-
-static unique_ptr<Entity> makeCadaver(IEntityConfig* cfg)
-{
-  (void)cfg;
-  return make_unique<Cadaver>();
-}
-
-static auto const reg1 = registerEntity("cadaver", &makeCadaver);
 

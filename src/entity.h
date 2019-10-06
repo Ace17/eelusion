@@ -29,6 +29,11 @@ struct Damageable
   virtual void onDamage(int amount) = 0;
 };
 
+struct Resurrectable
+{
+  virtual void resurrect() = 0;
+};
+
 struct Entity : Body
 {
   virtual ~Entity() = default;

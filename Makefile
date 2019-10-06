@@ -50,6 +50,7 @@ include $(ENGINE_ROOT)/project.mk
 SRCS_GAME:=\
 	src/entities/blocks.cpp\
 	src/entities/bonus.cpp\
+	src/entities/cadaver.cpp\
 	src/entities/conveyor.cpp\
 	src/entities/detector.cpp\
 	src/entities/door.cpp\

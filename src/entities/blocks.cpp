@@ -53,6 +53,7 @@ struct FragileBlock : Entity, Damageable
   void reappear()
   {
     collisionGroup = CG_WALLS;
+    collidesWith = CG_WALLS;
     solid = 1;
   }
 
@@ -60,6 +61,7 @@ struct FragileBlock : Entity, Damageable
   {
     disappearTimer = 300;
     collisionGroup = 0;
+    collidesWith = 0;
     solid = 0;
   }
 
