@@ -45,13 +45,30 @@
                 {
                  "height":16,
                  "id":52,
-                 "name":"bonus_life",
+                 "name":"upgrade_key",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
                  "x":976,
                  "y":176
+                }, 
+                {
+                 "height":16,
+                 "id":53,
+                 "name":"savepoint",
+                 "properties":[
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":48,
+                 "y":208
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -60,7 +77,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":53,
+ "nextobjectid":54,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

@@ -90,7 +90,7 @@ std::unique_ptr<Entity> makeBonus(int action, int upgradeType, char const* msg)
 static auto const reg1 = registerEntity("upgrade_climb", [] (IEntityConfig*) { return makeBonus(4, UPGRADE_CLIMB, "jump while against wall"); });
 static auto const reg2 = registerEntity("upgrade_whip", [] (IEntityConfig*) { return makeBonus(3, UPGRADE_WHIP, "You got the WHIP (press Z)"); });
 static auto const reg3 = registerEntity("upgrade_ghost", [] (IEntityConfig*) { return makeBonus(5, UPGRADE_GHOST, "Press C"); });
-static auto const reg4 = registerEntity("upgrade_djump", [] (IEntityConfig*) { return makeBonus(6, UPGRADE_DJUMP, "jump while airborne"); });
+static auto const reg4 = registerEntity("upgrade_key", [] (IEntityConfig*) { return makeBonus(6, UPGRADE_KEY, "Got the KEY. Now find the chest."); });
 static auto const reg5 = registerEntity("upgrade_ball", [] (IEntityConfig*) { return makeBonus(7, UPGRADE_BALL, "press down"); });
 static auto const reg6 = registerEntity("upgrade_slide", [] (IEntityConfig*) { return makeBonus(8, UPGRADE_SLIDE, "go against wall while falling"); });
 static auto const reg7 = registerEntity("bonus_life", [] (IEntityConfig*) { return makeBonus(0, 0, "life up"); });
