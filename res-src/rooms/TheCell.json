@@ -85,6 +85,17 @@
                  "width":16,
                  "x":480,
                  "y":432
+                }, 
+                {
+                 "height":16,
+                 "id":48,
+                 "name":"savepoint",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":592,
+                 "y":176
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -93,7 +104,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":48,
+ "nextobjectid":49,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

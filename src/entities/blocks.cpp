@@ -12,6 +12,7 @@
 #include "toggle.h"
 #include "entity.h"
 #include "models.h"
+#include "entities/player.h"
 
 struct FragileBlock : Entity, Damageable
 {
@@ -49,6 +50,8 @@ struct FragileBlock : Entity, Damageable
 
   void tick() override
   {
+    bool canReapear = !physics->getBodiesInBox(getBox(), CG_PLAYER, false, this);
+
     if(state == 1)
     {
       if(decrement(timer))
@@ -63,11 +66,15 @@ struct FragileBlock : Entity, Damageable
     }
     else if(state == 2)
     {
-      bool canReapear = !physics->getBodiesInBox(getBox(), CG_PLAYER, false, this);
       decrement(timer);
 
       if(canReapear && timer == 0)
         reappear();
+    }
+    else if(state == 0)
+    {
+      if(!canReapear)
+        disappear();
     }
   }
 
