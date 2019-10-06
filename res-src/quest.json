@@ -60,6 +60,28 @@
                  "width":16,
                  "x":80,
                  "y":120
+                }, 
+                {
+                 "height":4,
+                 "id":285,
+                 "name":"Ending",
+                 "rotation":0,
+                 "type":"0",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":116
+                }, 
+                {
+                 "height":4,
+                 "id":287,
+                 "name":"Secret",
+                 "rotation":0,
+                 "type":"0",
+                 "visible":true,
+                 "width":8,
+                 "x":56,
+                 "y":116
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -103,7 +125,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":285,
+ "nextobjectid":288,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

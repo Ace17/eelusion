@@ -26,7 +26,7 @@ struct ExitPoint : Entity
 
   virtual void addActors(vector<Actor>& actors) const override
   {
-    auto r = Actor { pos, MDL_BLOCK };
+    auto r = Actor { pos, MDL_CHEST };
     r.scale = size;
     r.ratio = 0;
     r.action = 0;
@@ -36,11 +36,17 @@ struct ExitPoint : Entity
 
   void onCollide(Body* other)
   {
+    if(!active)
+      return;
+
     if(dynamic_cast<Player*>(other))
     {
+      active = false;
       game->postEvent(make_unique<FinishGameEvent>());
     }
   }
+
+  bool active = true;
 };
 
 #include "entity_factory.h"

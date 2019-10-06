@@ -13,6 +13,7 @@
 #include "vec.h"
 #include "toggle.h"
 #include "state_machine.h"
+#include "models.h" // MDL_SPLASH
 
 struct EndingState : Scene
 {
@@ -25,7 +26,7 @@ struct EndingState : Scene
 
   Scene* tick(Control c) override
   {
-    auto const FADE_TIME = 100;
+    auto const FADE_TIME = 10;
 
     view->playMusic(6);
 
@@ -41,7 +42,7 @@ struct EndingState : Scene
     }
 
     view->setCameraPos(NullVector);
-    view->setAmbientLight(delay / float(FADE_TIME) - 1.0);
+    // view->setAmbientLight(delay / float(FADE_TIME) - 1.0);
 
     if(activated)
     {
@@ -57,6 +58,12 @@ struct EndingState : Scene
 
   void draw() override
   {
+    {
+      auto splash = Actor { NullVector, MDL_SPLASH };
+      splash.scale = Size2f(16, 16);
+      splash.pos -= Vector2f(8, 8);
+      view->sendActor(splash);
+    }
     view->textBox("THANKS FOR PLAYING!");
   }
 

@@ -3,7 +3,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJztlksOgCAQQyG68f4XdiMJIUGHz3QGaZOulLQPP0wMIUSapuEuZd3Hkv2Pe1Bj+pL0vl6hn6s3\/jJH4z2e0Utb1pxvvVA5nrjzXqgcT9wW2pU7aVfuJAT\/CuefVEfmnpwWfu35RDNn5N9q1Yv85N+dH9HJI7+GyD\/O76UTMku7FzqnVeTH5ezOT1EtQn4zZ2apWs95CcvI7CBZV7ue82vMOdqz09e66\/GsHlb8K\/sGGwIECQ==",
+         "data":"eJztlsEKgDAMQzf04v\/\/sBcPZVi6sjats4GAB2fyNsX21lovl8twj4ruE8m+4x5wTJK0e6YV+lyz8Us5Fu+xdS9UDpJzthcqJ5qb64XKieamQnXJxo3WX7mRWv3\/efbS6iDW5EhMnjMJl4vKnOXP0Kv44\/j7cL2zs\/Jz2p3fQ8W\/zo\/q5KGM\/Fy\/DEKdy1teJqH6FH+ppBPymzmJZ7Uyd1k9c3atdA\/l95hzvGcnad312KpHFP+XfQNGMwQ3",
          "encoding":"base64",
          "height":32,
          "id":4,
@@ -79,7 +79,7 @@
                         {
                          "name":"delta_y",
                          "type":"string",
-                         "value":"15"
+                         "value":"16"
                         }],
                  "rotation":0,
                  "type":"",
@@ -143,6 +143,74 @@
                  "width":16,
                  "x":736,
                  "y":448
+                }, 
+                {
+                 "height":16,
+                 "id":55,
+                 "name":"fragile_block",
+                 "properties":[
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":624,
+                 "y":176
+                }, 
+                {
+                 "height":16,
+                 "id":56,
+                 "name":"fragile_block",
+                 "properties":[
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":624,
+                 "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":57,
+                 "name":"fragile_block",
+                 "properties":[
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":208
+                }, 
+                {
+                 "height":16,
+                 "id":58,
+                 "name":"fragile_block",
+                 "properties":[
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":224
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -151,7 +219,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":55,
+ "nextobjectid":59,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
