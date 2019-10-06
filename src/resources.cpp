@@ -39,6 +39,7 @@ static const Resource resources[] =
   { ResourceType::Model, MDL_TILES_07, "res/tiles/tiles-07.tiles" },
 
   { ResourceType::Model, MDL_DOOR, "res/sprites/door.model" },
+  { ResourceType::Model, MDL_SAVEPOINT, "res/sprites/savepoint.model" },
   { ResourceType::Model, MDL_BLOCK, "res/sprites/block.model" },
   { ResourceType::Model, MDL_SPLASH, "res/sprites/splash.model" },
   { ResourceType::Model, MDL_PAUSED, "res/sprites/minimap.model" },

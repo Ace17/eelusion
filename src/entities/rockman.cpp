@@ -115,22 +115,13 @@ struct Rockman : Player, Damageable, Resurrectable
     if(resurrecting)
       return;
 
-    if(!(upgrades & UPGRADE_BODY))
+    if(!(upgrades & UPGRADE_BODY) || ghostDelay)
     {
       r.ratio = (time % 100) / 100.0f;
       r.action = ACTION_GHOST;
 
       if(vel.x < 0)
         r.scale.width *= -1;
-    }
-    else if(sliding)
-    {
-      if(whipDelay == 0)
-        r.action = ACTION_SLIDE;
-      else
-        r.action = ACTION_SLIDE_SHOOT;
-
-      r.ratio = (time % 300) / 300.0f;
     }
     else if(hurtDelay || life < 0)
     {
@@ -156,26 +147,30 @@ struct Rockman : Player, Damageable, Resurrectable
         r.pos.y -= 0.3;
         r.action = whipDelay ? ACTION_FALL_SHOOT : ACTION_FALL;
         r.ratio = vel.y > 0 ? 0 : 1;
+
+
+        if(r.action == ACTION_FALL_SHOOT)
+        {
+          auto r2 = r;
+          r2.ratio = 0;
+          r2.action= ACTION_WHIP;
+          r2.pos.x += 3.0 * (dir == LEFT? -1 : 1);
+          if(dir == LEFT)
+            r2.scale.width *= -1;
+          actors.push_back(r2);
+        }
       }
     }
     else
     {
       if(vel.x != 0)
       {
-        if(ghostDelay)
-        {
-          r.ratio = (time % 100) / 100.0f;
-          r.action = ACTION_GHOST;
-        }
-        else
-        {
-          r.ratio = (time % 500) / 500.0f;
+        r.ratio = (time % 500) / 500.0f;
 
-          if(whipDelay == 0)
-            r.action = ACTION_WALK;
-          else
-            r.action = ACTION_WALK_SHOOT;
-        }
+        if(whipDelay == 0)
+          r.action = ACTION_WALK;
+        else
+          r.action = ACTION_WALK_SHOOT;
       }
       else
       {
@@ -267,24 +262,6 @@ struct Rockman : Player, Damageable, Resurrectable
     if(life > 0 && !ladder && (upgrades & UPGRADE_BODY))
       vel.y -= 0.00005;
 
-    sliding = false;
-
-    if(upgrades & UPGRADE_SLIDE)
-    {
-      if(!ground)
-      {
-        if(vel.y < 0 && facingWall() && (c.left || c.right))
-        {
-          // don't allow double-jumping from sliding state,
-          // unless we have the climb upgrade
-          doubleJumped = !(upgrades & UPGRADE_CLIMB);
-          vel.y *= 0.97;
-          sliding = true;
-          ghostDelay = 0;
-        }
-      }
-    }
-
     if(jumpbutton.toggle(c.jump))
     {
       if(ground)
@@ -292,27 +269,6 @@ struct Rockman : Player, Damageable, Resurrectable
         game->playSound(SND_JUMP);
         vel.y = JUMP_VEL;
         doubleJumped = false;
-      }
-      else if(facingWall() && (upgrades & UPGRADE_CLIMB))
-      {
-        game->playSound(SND_JUMP);
-        // wall climbing
-        vel.x = dir == RIGHT ? -0.04 : 0.04;
-
-        if(c.dash)
-          ghostDelay = 400;
-        else
-          ghostDelay = 0;
-
-        vel.y = JUMP_VEL;
-        climbDelay = CLIMB_DELAY;
-        doubleJumped = false;
-      }
-      else if((upgrades & UPGRADE_DJUMP) && !doubleJumped)
-      {
-        game->playSound(SND_JUMP);
-        vel.y = JUMP_VEL;
-        doubleJumped = true;
       }
     }
 
@@ -353,7 +309,7 @@ struct Rockman : Player, Damageable, Resurrectable
 
     float wantedSpeed = 0;
 
-    if(!climbDelay && !ladder)
+    if(!climbDelay && !ladder && !whipDelay)
     {
       if(c.left)
         wantedSpeed -= WALK_SPEED;
@@ -362,19 +318,13 @@ struct Rockman : Player, Damageable, Resurrectable
         wantedSpeed += WALK_SPEED;
     }
 
-    if(upgrades & UPGRADE_DASH)
+    if(upgrades & UPGRADE_GHOST)
     {
-      if(dashbutton.toggle(c.dash) && ground && ghostDelay == 0)
+      if(dashbutton.toggle(c.dash) && ghostDelay == 0)
       {
         game->playSound(SND_JUMP);
         ghostDelay = 400;
       }
-    }
-
-    if(ghostDelay > 0)
-    {
-      wantedSpeed *= 4;
-      vel.x = wantedSpeed;
     }
 
     vel.x = (vel.x * 0.95 + wantedSpeed * 0.05);
@@ -385,6 +335,8 @@ struct Rockman : Player, Damageable, Resurrectable
 
   virtual void tick() override
   {
+    decrement(ghostDelay);
+
     if(!(upgrades & UPGRADE_BODY) && resurrecting)
     {
       game->setAmbientLight(resurrectDelay / 100.0);
@@ -426,9 +378,6 @@ struct Rockman : Player, Damageable, Resurrectable
   {
     decrement(blinking);
     decrement(hurtDelay);
-
-    if(ground)
-      decrement(ghostDelay);
 
     if(hurtDelay || life <= 0)
       control = Control {};
@@ -475,8 +424,6 @@ struct Rockman : Player, Damageable, Resurrectable
       {
         if(tryActivate(debounceLanding, 150))
           game->playSound(SND_LAND);
-
-        ghostDelay = 0;
       }
     }
 
@@ -555,14 +502,11 @@ struct Rockman : Player, Damageable, Resurrectable
     {
       if(firebutton.toggle(control.fire) && tryActivate(debounceFire, 150))
       {
+        if(ground)
+          vel.x = 0;
         auto b = make_unique<WhipHit>();
         auto sign = (dir == LEFT ? -1 : 1);
         auto offsetH = vel.x ? Vector(0.8, 0) : Vector(0.7, 0);
-
-        if(sliding)
-        {
-          sign = -sign;
-        }
 
         b->pos = pos + offsetH * sign;
         b->vel = Vector(0.25, 0) * sign;
@@ -588,7 +532,6 @@ struct Rockman : Player, Damageable, Resurrectable
   float ladderX;
   int life = MAX_LIFE;
   bool doubleJumped = false;
-  bool sliding = false;
   bool ladder = false;
   bool resurrecting = false;
   int resurrectDelay = 0;

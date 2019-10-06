@@ -10,6 +10,7 @@
 
 #include "collision_groups.h"
 #include "entity.h"
+#include "toggle.h"
 #include "models.h" // MDL_BLOCK
 #include "sounds.h" // SND_HATCH
 #include "entities/player.h"
@@ -27,12 +28,19 @@ struct SavePoint : Entity
 
   virtual void addActors(vector<Actor>& actors) const override
   {
-    auto r = Actor { pos, MDL_BLOCK };
+    auto r = Actor { pos, MDL_SAVEPOINT };
     r.scale = size;
     r.ratio = 0;
     r.action = 0;
+    if(timer)
+    r.effect = Effect::Blinking;
 
     actors.push_back(r);
+  }
+
+  void tick() override
+  {
+    decrement(timer);
   }
 
   void onCollide(Body* other)
@@ -41,8 +49,11 @@ struct SavePoint : Entity
     {
       game->postEvent(make_unique<SaveEvent>());
       game->textBox("Game Saved");
+      timer = 50;
     }
   }
+
+  int timer=0;
 };
 
 #include "entity_factory.h"

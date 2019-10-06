@@ -1,0 +1,12 @@
+{
+  "type" : "sheet",
+  "sheet" : "savepoint.png",
+  "rows" : 1,
+  "cols" : 1,
+  "actions": [
+    {
+      "name": "normal",
+      "frames": [ 0 ]
+    }
+  ]
+}
