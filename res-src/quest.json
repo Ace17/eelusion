@@ -55,11 +55,11 @@
                  "id":284,
                  "name":"Aux",
                  "rotation":0,
-                 "type":"0",
+                 "type":"2",
                  "visible":true,
                  "width":16,
-                 "x":80,
-                 "y":120
+                 "x":88,
+                 "y":124
                 }, 
                 {
                  "height":4,
@@ -93,6 +93,17 @@
                  "width":16,
                  "x":80,
                  "y":116
+                }, 
+                {
+                 "height":8,
+                 "id":289,
+                 "name":"Square",
+                 "rotation":0,
+                 "type":"2",
+                 "visible":true,
+                 "width":8,
+                 "x":80,
+                 "y":120
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -136,7 +147,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":289,
+ "nextobjectid":290,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
