@@ -3,7 +3,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJztltsOgCAMQyE++f8\/7IsmhEQYl3XTtUnfnO3BC+SUUqZpGu5a1n0s2f+4Bm9MPUmvmxX6uXrjr3M03uMdvbRlzdnqhcrxxF32QuV44rZQVO5HUbkfIfi\/sP9JdRSeyRnh1z6faOas\/FutepGf\/NH5EZ088muI\/Ov8Xjohs7R7oXNGRX5cTnR+ihoR8puZyRrd5yX3Xzk7SOaszjk7GFqzvbnztgf+qL4A2b8D8A==",
+         "data":"eJztls0OgCAMgyGefP8X9iIJIVEGuG64NulNbD\/8YTmllGmahruVdR9L9j\/uwRNTT9LrZoV+rt742xyN9\/iLXtqy5nzrhcrxxF33QuV44rZQVO6iqNxFCP4dzj+pjsozOSP82vOJZs7Kv9WqF\/nJH50f0ckjv4bIv87vpRMyS7sXOmdU5MflROenqBEhv5mZrNFzXnL\/ldlBss5qztGenXrrztu78+\/sC+czA\/c=",
          "encoding":"base64",
          "height":32,
          "id":4,
@@ -121,6 +121,17 @@
                  "width":16,
                  "x":368,
                  "y":464
+                }, 
+                {
+                 "height":16,
+                 "id":53,
+                 "name":"hopper",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":464
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -129,7 +140,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":53,
+ "nextobjectid":54,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
