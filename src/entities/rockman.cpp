@@ -167,7 +167,7 @@ struct Rockman : Player, Damageable, Resurrectable
     {
       if(vel.x != 0)
       {
-        r.ratio = (time % 500) / 500.0f;
+        r.ratio = (time % 300) / 300.0f;
 
         if(whipDelay == 0)
           r.action = ACTION_WALK;

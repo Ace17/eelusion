@@ -175,6 +175,17 @@
                  "width":16,
                  "x":256,
                  "y":128
+                }, 
+                {
+                 "height":16,
+                 "id":54,
+                 "name":"hopper",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":720,
+                 "y":192
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -183,7 +194,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":54,
+ "nextobjectid":55,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

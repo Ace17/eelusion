@@ -255,6 +255,28 @@
                  "width":16,
                  "x":912,
                  "y":208
+                }, 
+                {
+                 "height":16,
+                 "id":63,
+                 "name":"hopper",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":320,
+                 "y":224
+                }, 
+                {
+                 "height":16,
+                 "id":64,
+                 "name":"hopper",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":224
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -263,7 +285,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":63,
+ "nextobjectid":65,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

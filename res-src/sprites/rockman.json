@@ -38,7 +38,7 @@
     },
     {
       "name": "walk",
-      "frames": [ 32, 33, 34, 35, 33 ]
+      "frames": [ 33, 34, 35 ]
     },
     {
       "name": "walkShoot",
