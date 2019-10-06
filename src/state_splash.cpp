@@ -28,7 +28,7 @@ struct SplashState : Scene
   {
     auto const FADE_TIME = 100;
 
-    view->playMusic(6);
+    view->playMusic(1);
 
     if(!activated)
     {

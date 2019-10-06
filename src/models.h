@@ -39,5 +39,6 @@ enum
   MDL_SPIKES,
   MDL_LADDER,
   MDL_BACKGROUND,
+  MDL_HOPPER,
 };
 

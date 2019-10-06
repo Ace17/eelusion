@@ -1,0 +1,9 @@
+{
+  "type" : "sheet",
+  "sheet" : "hopper.png",
+  "rows" : 2,
+  "cols" : 2,
+  "actions": [
+    { "name": "", "frames": [ 0, 1 ] }
+  ]
+}

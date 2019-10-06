@@ -31,6 +31,7 @@ static const Resource resources[] =
   { ResourceType::Sound, SND_HURT_ENEMY, "res/sounds/hurt_enemy.ogg" },
   { ResourceType::Sound, SND_DIE_ENEMY, "res/sounds/die_enemy.ogg" },
   { ResourceType::Sound, SND_SAVEPOINT, "res/sounds/savepoint.ogg" },
+  { ResourceType::Sound, SND_VICTORY, "res/sounds/victory.ogg" },
 
   { ResourceType::Model, MDL_TILES_00, "res/tiles/tiles-00.tiles" },
   { ResourceType::Model, MDL_TILES_01, "res/tiles/tiles-01.tiles" },
@@ -60,6 +61,7 @@ static const Resource resources[] =
   { ResourceType::Model, MDL_BULLET, "res/sprites/bullet.model" },
   { ResourceType::Model, MDL_EXPLOSION, "res/sprites/explosion.model" },
   { ResourceType::Model, MDL_SPIKES, "res/sprites/spikes.model" },
+  { ResourceType::Model, MDL_HOPPER, "res/sprites/hopper.model" },
 };
 
 Span<const Resource> getResources()
