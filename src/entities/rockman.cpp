@@ -148,15 +148,16 @@ struct Rockman : Player, Damageable, Resurrectable
         r.action = whipDelay ? ACTION_FALL_SHOOT : ACTION_FALL;
         r.ratio = vel.y > 0 ? 0 : 1;
 
-
         if(r.action == ACTION_FALL_SHOOT)
         {
           auto r2 = r;
           r2.ratio = 0;
-          r2.action= ACTION_WHIP;
-          r2.pos.x += 3.0 * (dir == LEFT? -1 : 1);
+          r2.action = ACTION_WHIP;
+          r2.pos.x += 3.0 * (dir == LEFT ? -1 : 1);
+
           if(dir == LEFT)
             r2.scale.width *= -1;
+
           actors.push_back(r2);
         }
       }
@@ -181,16 +182,19 @@ struct Rockman : Player, Damageable, Resurrectable
         }
         else
         {
-          r.ratio = 1.0 - (whipDelay%300)/300.0f;
+          r.ratio = 1.0 - (whipDelay % 300) / 300.0f;
           r.action = ACTION_STAND_SHOOT;
+
           if(r.ratio >= 0.5)
           {
             auto r2 = r;
             r2.ratio = 0;
-            r2.action= ACTION_WHIP;
-            r2.pos.x += 3.0 * (dir == LEFT? -1 : 1);
+            r2.action = ACTION_WHIP;
+            r2.pos.x += 3.0 * (dir == LEFT ? -1 : 1);
+
             if(dir == LEFT)
               r2.scale.width *= -1;
+
             actors.push_back(r2);
           }
         }
@@ -504,6 +508,7 @@ struct Rockman : Player, Damageable, Resurrectable
       {
         if(ground)
           vel.x = 0;
+
         auto b = make_unique<WhipHit>();
         auto sign = (dir == LEFT ? -1 : 1);
         auto offsetH = vel.x ? Vector(0.8, 0) : Vector(0.7, 0);

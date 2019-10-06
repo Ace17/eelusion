@@ -32,8 +32,9 @@ struct SavePoint : Entity
     r.scale = size;
     r.ratio = 0;
     r.action = 0;
+
     if(timer)
-    r.effect = Effect::Blinking;
+      r.effect = Effect::Blinking;
 
     actors.push_back(r);
   }
@@ -53,7 +54,7 @@ struct SavePoint : Entity
     }
   }
 
-  int timer=0;
+  int timer = 0;
 };
 
 #include "entity_factory.h"

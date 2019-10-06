@@ -28,10 +28,12 @@ struct FragileBlock : Entity, Damageable
 
     auto r = Actor { pos, MDL_BLOCK };
     r.scale = size;
+
     if(state == 0)
-    r.ratio = 0;
+      r.ratio = 0;
     else
-      r.ratio = 1.0f-(timer/50.0f);
+      r.ratio = 1.0f - (timer / 50.0f);
+
     r.action = 3;
 
     actors.push_back(r);
