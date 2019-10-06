@@ -3,7 +3,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJztVtEKwCAItMf2\/x+8p4GIbqaJ0jzwJe6sQysHAIyOX6H96\/xn92RUD1u1VxLPq6Fo\/2f699wD794c7yt3Vv0fVK6\/dC5tbo0vq39Og9e0vrz19\/7dq9rI+mu9WPt\/x5xT\/f2Lxon+pb6YKKS9OQ7mzRcOzUe5q7k1WorseTV7Rs4+S4W4ASnOA6k=",
+         "data":"eJztVtEKwCAItMf6\/w\/eUxCiqUkozYN7WJzWcW6rAUAr\/grlX+c\/eiZvzfBp7QjSeWswyv+b\/j3vgXdvSif1jsp\/InP+3Lm0vTW+Tv1TNeua1pc3f++\/21p7M3+tl9P55zKzIPv3bweLf279Bf\/S3Wk+94Xc3pRm1fWNBvfDWmtvidF302JOfoquA9A=",
          "encoding":"base64",
          "height":16,
          "id":3,
@@ -19,7 +19,29 @@
          "draworder":"topdown",
          "id":2,
          "name":"things",
-         "objects":[],
+         "objects":[
+                {
+                 "height":16,
+                 "id":51,
+                 "name":"lift",
+                 "properties":[
+                        {
+                         "name":"delta_x",
+                         "type":"string",
+                         "value":"50"
+                        }, 
+                        {
+                         "name":"delta_y",
+                         "type":"string",
+                         "value":"0"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":96,
+                 "y":192
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -27,7 +49,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":50,
+ "nextobjectid":52,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

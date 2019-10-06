@@ -23,9 +23,9 @@ struct Skeleton : Entity, Damageable
   {
     vel = NullVector;
     dir = -1.0f;
-    size = Size2f(1, 3);
+    size = Size2f(1, 2);
     collisionGroup = CG_WALLS;
-    collidesWith = CG_SOLIDPLAYER;
+    collidesWith = CG_DOORS | CG_SOLIDPLAYER;
     Body::onCollision = [this] (Body* other) { onCollide(other); };
   }
 
@@ -61,7 +61,7 @@ struct Skeleton : Entity, Damageable
     }
 
     if(ground)
-      vel.x = 0;
+      vel.x = dir * 0.02;
     else
       vel.x = dir * 0.03;
 
