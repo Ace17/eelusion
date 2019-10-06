@@ -63,6 +63,7 @@ SRCS_GAME:=\
 	src/entities/moving_platform.cpp\
 	src/entities/rockman.cpp\
 	src/entities/savepoint.cpp\
+	src/entities/skeleton.cpp\
 	src/entities/spider.cpp\
 	src/entities/spikes.cpp\
 	src/entities/sweeper.cpp\

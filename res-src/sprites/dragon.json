@@ -1,0 +1,12 @@
+{
+  "type" : "sheet",
+  "sheet" : "dragon.png",
+  "rows" : 2,
+  "cols" : 2,
+  "actions": [
+    { "name": "", "frames": [ 0, 1 ] },
+    { "name": "", "frames": [ 1 ] },
+    { "name": "", "frames": [ 2 ] },
+    { "name": "", "frames": [ 3 ] }
+  ]
+}
