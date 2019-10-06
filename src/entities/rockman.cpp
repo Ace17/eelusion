@@ -231,6 +231,11 @@ struct Rockman : Player, Damageable, Resurrectable
     game->getVariable(-1)->set(upgrades);
   }
 
+  virtual bool hasKey()
+  {
+    return upgrades & UPGRADE_KEY;
+  }
+
   void computeVelocity(Control c)
   {
     if(!(upgrades & UPGRADE_BODY))

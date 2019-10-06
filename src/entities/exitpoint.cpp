@@ -40,10 +40,17 @@ struct ExitPoint : Entity
     if(!active)
       return;
 
-    if(dynamic_cast<Player*>(other))
+    if(auto player = dynamic_cast<Player*>(other))
     {
-      active = false;
-      timer = 50;
+      if(player->hasKey())
+      {
+        active = false;
+        timer = 50;
+      }
+      else
+      {
+        game->textBox("You need the key");
+      }
     }
   }
 
