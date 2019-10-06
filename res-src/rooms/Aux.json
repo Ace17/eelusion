@@ -3,7 +3,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJztVssKwDAIs8f2\/z94J6GIbX1QlM5ADhvRkpltNgBoxV+h\/Mv8R2fyVoattSNI562hKP9v+ve8B96zOd2pd9T8EZnnv8qntLfEl9U\/VzPfk2bUO3\/vv1tbe3P+Ui\/W\/K9mpkH2798OGv8v7oPS3Qmv+0QEffacZtb1jYb2o1pt7xOjd9NiTn4KIgOq",
+         "data":"eJztVtEKwCAIrMf6\/w\/eUyCSdSphNA\/uYXEaN2\/DWkqpyV8h\/WP+ozN5KsPW2h6k89ZwpP83\/Xu+A+\/dM92ud9T8B26ev5RPtDfiy+p\/VkPP0IxavHTh3AJt7cn5o16s+ZdmpsHt\/78VNP5f3AfR3Wk8N8IB\/u5nGqprCw3vx7Xa3jtG76bJO\/kBFtYDrA==",
          "encoding":"base64",
          "height":16,
          "id":3,
@@ -41,6 +41,17 @@
                  "width":32,
                  "x":96,
                  "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":52,
+                 "name":"bonus_life",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":976,
+                 "y":176
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -49,7 +60,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":52,
+ "nextobjectid":53,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",
