@@ -33,11 +33,11 @@ enum ORIENTATION
   RIGHT,
 };
 
-struct Bullet : Entity
+struct WhipHit : Entity
 {
-  Bullet()
+  WhipHit()
   {
-    size = Size(0.5, 0.4);
+    size = Size(0.5, 2.0);
     collisionGroup = 0;
     collidesWith = CG_WALLS;
     Body::onCollision = [this] (Body* other) { onCollide(other); };
@@ -70,7 +70,7 @@ struct Bullet : Entity
     dead = true;
   }
 
-  int life = 1000;
+  int life = 10;
   Vector vel;
 };
 
@@ -119,11 +119,6 @@ struct Rockman : Player, Damageable, Resurrectable
 
       if(vel.x < 0)
         r.scale.width *= -1;
-    }
-    else if(ball)
-    {
-      r.action = ACTION_BALL;
-      r.ratio = (time % 300) / 300.0f;
     }
     else if(sliding)
     {
@@ -263,7 +258,7 @@ struct Rockman : Player, Damageable, Resurrectable
 
     if(upgrades & UPGRADE_SLIDE)
     {
-      if(!ball && !ground)
+      if(!ground)
       {
         if(vel.y < 0 && facingWall() && (c.left || c.right))
         {
@@ -478,9 +473,7 @@ struct Rockman : Player, Damageable, Resurrectable
     decrement(shootDelay);
     decrement(ladderDelay);
 
-    handleShooting();
-
-    handleBall();
+    handleWhip();
   }
 
   virtual void onDamage(int amount) override
@@ -531,7 +524,6 @@ struct Rockman : Player, Damageable, Resurrectable
   void die()
   {
     game->playSound(SND_DIE);
-    ball = false;
     size = NORMAL_SIZE;
     dieDelay = 1500;
   }
@@ -544,51 +536,26 @@ struct Rockman : Player, Damageable, Resurrectable
     life = MAX_LIFE;
   }
 
-  void handleShooting()
+  void handleWhip()
   {
-    if(upgrades & UPGRADE_WHIP && !ball)
+    if(upgrades & UPGRADE_WHIP)
     {
       if(firebutton.toggle(control.fire) && tryActivate(debounceFire, 150))
       {
-        auto b = make_unique<Bullet>();
+        auto b = make_unique<WhipHit>();
         auto sign = (dir == LEFT ? -1 : 1);
-        auto offsetV = vel.x ? Vector(0, 1) : Vector(0, 0.9);
         auto offsetH = vel.x ? Vector(0.8, 0) : Vector(0.7, 0);
 
         if(sliding)
         {
           sign = -sign;
         }
-        else if(!ground)
-          offsetV.y += 0.25;
 
-        b->pos = pos + offsetV + offsetH * sign;
+        b->pos = pos + offsetH * sign;
         b->vel = Vector(0.25, 0) * sign;
         game->spawn(b.release());
         game->playSound(SND_FIRE);
         shootDelay = 300;
-      }
-    }
-  }
-
-  void handleBall()
-  {
-    if(!ladder && control.down && !ball && (upgrades & UPGRADE_BALL))
-    {
-      ball = true;
-      size = Size(NORMAL_SIZE.width, 0.9);
-    }
-
-    if(control.up && ball)
-    {
-      Box box;
-      box.size = NORMAL_SIZE;
-      box.pos = pos;
-
-      if(!physics->isSolid(this, roundBox(box)))
-      {
-        ball = false;
-        size = NORMAL_SIZE;
       }
     }
   }
@@ -608,7 +575,6 @@ struct Rockman : Player, Damageable, Resurrectable
   float ladderX;
   int life = MAX_LIFE;
   bool doubleJumped = false;
-  bool ball = false;
   bool sliding = false;
   bool ladder = false;
   bool resurrecting = false;
