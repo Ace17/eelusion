@@ -94,6 +94,7 @@ struct HighLevelAudio : Audio
   void stopMusic() override
   {
     m_backend->stopLoopOnChannelZero();
+    currMusic = -1;
   }
 
   int currMusic = -1;

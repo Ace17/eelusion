@@ -90,6 +90,7 @@ struct Rockman : Player, Damageable, Resurrectable
 
   void resurrect() override
   {
+    game->stopMusic();
     game->playSound(SND_VICTORY);
     resurrecting = true;
     resurrectDelay = 100;
