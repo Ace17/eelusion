@@ -24,7 +24,7 @@ void preloadResources(View* view)
 
 Scene* createGame(View* view, vector<string> args)
 {
-  view->setTitle("Deeep");
+  view->setTitle("eelusion");
   preloadResources(view);
 
   if(args.size() == 1)
