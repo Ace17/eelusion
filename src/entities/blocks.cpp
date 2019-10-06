@@ -41,6 +41,9 @@ struct FragileBlock : Entity, Damageable
 
   virtual void onDamage(int) override
   {
+    if(state != 0)
+      return;
+
     disappear();
   }
 

@@ -49,6 +49,17 @@
                  "width":12,
                  "x":36,
                  "y":120
+                }, 
+                {
+                 "height":4,
+                 "id":284,
+                 "name":"Aux",
+                 "rotation":0,
+                 "type":"0",
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":120
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -92,7 +103,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":284,
+ "nextobjectid":285,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

@@ -23,7 +23,7 @@ struct Hopper : Entity, Damageable
   {
     vel = NullVector;
     dir = -1.0f;
-    size = Size(1, 0.5);
+    size = UnitSize;
     collisionGroup = CG_WALLS;
     collidesWith = CG_SOLIDPLAYER;
     Body::onCollision = [this] (Body* other) { onCollide(other); };

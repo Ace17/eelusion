@@ -30,6 +30,7 @@ static const Resource resources[] =
   { ResourceType::Sound, SND_EXPLODE, "res/sounds/explode.ogg" },
   { ResourceType::Sound, SND_HURT_ENEMY, "res/sounds/hurt_enemy.ogg" },
   { ResourceType::Sound, SND_DIE_ENEMY, "res/sounds/die_enemy.ogg" },
+  { ResourceType::Sound, SND_SAVEPOINT, "res/sounds/savepoint.ogg" },
 
   { ResourceType::Model, MDL_TILES_00, "res/tiles/tiles-00.tiles" },
   { ResourceType::Model, MDL_TILES_01, "res/tiles/tiles-01.tiles" },
