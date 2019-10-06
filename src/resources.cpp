@@ -50,12 +50,12 @@ static const Resource resources[] =
   { ResourceType::Model, MDL_ROCKMAN, "res/sprites/rockman.model" },
   { ResourceType::Model, MDL_WHEEL, "res/sprites/wheel.model" },
   { ResourceType::Model, MDL_LIFEBAR, "res/sprites/lifebar.model" },
+  { ResourceType::Model, MDL_LADDER, "res/sprites/ladder.model" },
   { ResourceType::Model, MDL_TELEPORTER, "res/sprites/teleporter.model" },
   { ResourceType::Model, MDL_BONUS, "res/sprites/bonus.model" },
   { ResourceType::Model, MDL_BULLET, "res/sprites/bullet.model" },
   { ResourceType::Model, MDL_EXPLOSION, "res/sprites/explosion.model" },
   { ResourceType::Model, MDL_SPIKES, "res/sprites/spikes.model" },
-  { ResourceType::Model, MDL_LADDER, "res/sprites/rect.model" },
 };
 
 Span<const Resource> getResources()

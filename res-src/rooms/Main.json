@@ -3,7 +3,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJztlcEKACEIRI097f\/\/8LKHoIOW5bhS68AcgjSfQhYiKul0sKui67gYJ\/9\/+KMcza\/RCfwSj5UfJevcPPnbGOls1Sgfsu+IPBH8yLc8VPfG7lqd7c78Ly+3\/4l0vfD6F7Ua7ZTefcSe1Obh+tuLX6l15v+f9S3Ymg\/B+AX\/KX4AskcDDg==",
+         "data":"eJztlsEKwCAMQys77f9\/WDwIO9jV2caAayAHQauvYmsRkZJOk93FPsc1cPL\/h59lNv+MTuDXeLz8UfLeG5L\/uUYbe2XFi8x7RBwWf9ReCPW+gVB0vhF7IfnRaryj\/i8ylwv2+7R6ytv8lXq7Gm\/3\/8qq\/199K97JwuQ\/xRW9MwMH",
          "encoding":"base64",
          "height":16,
          "id":3,
@@ -20,28 +20,6 @@
          "id":2,
          "name":"things",
          "objects":[
-                {
-                 "height":16,
-                 "id":15,
-                 "name":"door(0)",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":704,
-                 "y":192
-                }, 
-                {
-                 "height":16,
-                 "id":43,
-                 "name":"switch(0)",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":672,
-                 "y":208
-                }, 
                 {
                  "height":16,
                  "id":44,
@@ -85,6 +63,40 @@
                  "width":16,
                  "x":160,
                  "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":46,
+                 "name":"savepoint",
+                 "properties":[
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":496,
+                 "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":47,
+                 "name":"upgrade_whip",
+                 "properties":[
+                        {
+                         "name":"link",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":640,
+                 "y":176
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -93,7 +105,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":46,
+ "nextobjectid":48,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.4",

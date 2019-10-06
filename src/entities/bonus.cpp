@@ -16,6 +16,7 @@
 #include "models.h"
 #include "sounds.h"
 #include "entities/player.h"
+#include "collision_groups.h"
 
 struct Bonus : Entity
 {
@@ -26,6 +27,9 @@ struct Bonus : Entity
     msg = msg_;
     size = UnitSize;
     Body::onCollision = [this] (Body* other) { onCollide(other); };
+
+    collidesWith = CG_SOLIDPLAYER;
+    collisionGroup = CG_BONUS;
   }
 
   void enter() override
@@ -39,7 +43,7 @@ struct Bonus : Entity
 
   virtual void addActors(vector<Actor>& actors) const override
   {
-    auto s = sin(time * 0.01);
+    auto s = sin(time * 0.1);
     auto r = Actor { pos, MDL_BONUS };
     r.scale = UnitSize;
     r.ratio = max(s, 0.0);
@@ -83,7 +87,7 @@ std::unique_ptr<Entity> makeBonus(int action, int upgradeType, char const* msg)
 
 #include "entity_factory.h"
 static auto const reg1 = registerEntity("upgrade_climb", [] (IEntityConfig*) { return makeBonus(4, UPGRADE_CLIMB, "jump while against wall"); });
-static auto const reg2 = registerEntity("upgrade_shoot", [] (IEntityConfig*) { return makeBonus(3, UPGRADE_SHOOT, "press Z"); });
+static auto const reg2 = registerEntity("upgrade_whip", [] (IEntityConfig*) { return makeBonus(3, UPGRADE_WHIP, "You got the WHIP (press Z)"); });
 static auto const reg3 = registerEntity("upgrade_dash", [] (IEntityConfig*) { return makeBonus(5, UPGRADE_DASH, "press C while walking"); });
 static auto const reg4 = registerEntity("upgrade_djump", [] (IEntityConfig*) { return makeBonus(6, UPGRADE_DJUMP, "jump while airborne"); });
 static auto const reg5 = registerEntity("upgrade_ball", [] (IEntityConfig*) { return makeBonus(7, UPGRADE_BALL, "press down"); });

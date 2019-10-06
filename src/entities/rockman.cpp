@@ -394,13 +394,22 @@ struct Rockman : Player, Damageable, Resurrectable
       }
     }
 
+    collisionGroup |= CG_PLAYER;
+
     if(upgrades & UPGRADE_BODY)
     {
+      collidesWith |= CG_BONUS;
       collidesWith |= CG_WALLS;
       collidesWith |= CG_DOORS;
+      if(!blinking)
+        collisionGroup |= CG_SOLIDPLAYER;
+      else
+        collisionGroup &= ~CG_SOLIDPLAYER;
     }
     else
     {
+      collisionGroup &= ~CG_SOLIDPLAYER;
+      collidesWith &= ~CG_BONUS;
       collidesWith &= ~CG_WALLS;
       collidesWith &= ~CG_DOORS;
     }
@@ -476,10 +485,6 @@ struct Rockman : Player, Damageable, Resurrectable
     handleShooting();
 
     handleBall();
-    collisionGroup = CG_PLAYER;
-
-    if(!blinking)
-      collisionGroup |= CG_SOLIDPLAYER;
   }
 
   virtual void onDamage(int amount) override
@@ -545,7 +550,7 @@ struct Rockman : Player, Damageable, Resurrectable
 
   void handleShooting()
   {
-    if(upgrades & UPGRADE_SHOOT && !ball)
+    if(upgrades & UPGRADE_WHIP && !ball)
     {
       if(firebutton.toggle(control.fire) && tryActivate(debounceFire, 150))
       {

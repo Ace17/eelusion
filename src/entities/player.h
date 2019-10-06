@@ -17,7 +17,7 @@ struct Player : Entity
 
 enum
 {
-  UPGRADE_SHOOT = 1,
+  UPGRADE_WHIP = 1,
   UPGRADE_CLIMB = 2,
   UPGRADE_DASH = 4,
   UPGRADE_DJUMP = 8,

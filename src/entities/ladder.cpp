@@ -24,8 +24,6 @@ struct Ladder : Entity, Climbable
   {
     auto r = Actor { pos, MDL_LADDER };
     r.scale = size;
-    r.ratio = 0;
-    r.action = 6;
     actors.push_back(r);
   }
 };
