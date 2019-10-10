@@ -1,4 +1,4 @@
-# Deeep
+# Eelusion
 
 Author: Sebastien Alaiwan
 
@@ -7,25 +7,22 @@ Demo
 
 An online demo is available here:
 
-http://code.alaiwan.org/games/deeep
+http://code.alaiwan.org/games/eelusion
 
 <p align="center"><img src="doc/screenshot.jpg" width="50%"></p>
 
 Description
 -----------
 
-This is a demo of a platform-independent C++14 game project.
-It uses SDL2, and the OpenGL core profile.
+This is a compo game for the LD45 game jam. The theme was "Start With Nothing".
 
-It's meant as an example of a platformer/metroidvania game
-which can be compiled to native code, or, using Emscripten, to Javascript,
-and maybe one day to WebAssembly.
+It's a tiny castlevania-like game which can be compiled to native code,
+or, using Emscripten, to asm.js (=javascript).
 
-The code doesn't contain any reference/dependency to Emscripten, except in the
-entry-point file, where the main loop function gets passed to Emscripten.
+It uses SDL2, and the OpenGL ES2 3.0 profile.
 
-This code also shows how to isolate your game logic code (doors, switches,
-powerups, bullets, ..) from your I/O code (display, audio, input).
+This code also shows how to isolate game logic code (doors, switches,
+powerups, bullets, ..) from I/O code (display, audio, input).
 
 Directory structure
 -------------------
